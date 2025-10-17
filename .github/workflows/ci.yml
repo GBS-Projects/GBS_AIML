@@ -4,9 +4,9 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
+  # pull_request:
+  #   branches:
+  #     - main
 
 jobs:
   build:
@@ -29,10 +29,20 @@ jobs:
         run: |
           pytest
 
-      - name: Commit changes (for example: adding changes to `README.md`)
-        run: |
-          git config --global user.name "Your Name"
-          git config --global user.email "youremail@example.com"
-          git add .
-          git commit -m "Automated update"
-          git push
+      # - name: Commit changes (for example: adding changes to `README.md`)
+      #   run: |
+      #     git config --global user.name "Your Name"
+      #     git config --global user.email "youremail@example.com"
+      #     git add .
+      #     git commit -m "Automated update"
+      #     git push
+
+      - name: Deploy to FTP
+        uses: SamKirkland/FTP-Deploy-Action@4.1.0
+        with:
+          ftp-server: ${{ secrets.FTP_HOST }}
+          ftp-username: ${{ secrets.FTP_USERNAME }}
+          ftp-password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./  # You can modify this if you want to deploy specific directories
+          remote-dir: /GBS_AIML/Folder  # Change this to your desired remote directory
+          ftp-port: ${{ secrets.FTP_PORT }}  # Optional: if you're using a custom FTP port
