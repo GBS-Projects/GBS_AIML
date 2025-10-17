@@ -31,8 +31,9 @@ jobs:
 
       # - name: Commit changes (for example: adding changes to `README.md`)
       #   run: |
-      #     git config --global user.name "saniltr"
-      #     git config --global user.email "saniltr@gmail.com"
+      #     git config --global user.name "Your Name"
+      #     git config --global user.email you@example.com
+
       #     git add .
       #     git commit -m "Automated update"
       #     git push
