@@ -29,15 +29,6 @@ jobs:
         run: |
           pytest
 
-      # - name: Commit changes (for example: adding changes to `README.md`)
-      #   run: |
-      #     git config --global user.name "Your Name"
-      #     git config --global user.email you@example.com
-
-      #     git add .
-      #     git commit -m "Automated update"
-      #     git push
-
       - name: Deploy to FTP
         uses: SamKirkland/FTP-Deploy-Action@4.1.0
         with:
